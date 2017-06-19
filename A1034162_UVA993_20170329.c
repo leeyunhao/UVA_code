@@ -1,0 +1,30 @@
+#include<stdio.h>
+main()
+{
+	int t,a[100],i,l;
+	int x;
+	scanf("%d",&t);
+	while(t--)
+	{
+		scanf("%d",&x);
+		if(x==1){
+			printf("1\n");
+			continue;
+		}
+		for(l=0;;)
+		{
+			for(i=9;i>=2&&x%i!=0;i--);
+			if(i==1)break;
+			a[l++]=i;
+			x/=i;
+			if(x==1)break; 
+		}
+		if(x>1)
+		{
+			printf("-1\n");
+			continue;
+		}
+		for(i=l-1;i>=0;i--)printf("%d",a[i]);
+		printf("\n");
+	}
+}
